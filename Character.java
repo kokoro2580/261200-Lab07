@@ -29,8 +29,12 @@ public class Character {
     }
 
     public void takeDamage(int damage) {
+        if (damage < 0) {
+            damage = -damage ;
+        }
         if (health - damage < 0) {
             this.health = 0 ;
+            System.out.println("Character takes " + damage + " damage. Health is now " + (this.health) + ".");
         } else {
             this.health = health - damage;
             System.out.println("Character takes " + damage + " damage. Health is now " + (this.health) + ".");
